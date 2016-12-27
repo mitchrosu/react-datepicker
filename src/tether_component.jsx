@@ -48,7 +48,7 @@ var TetherComponent = React.createClass({
   getDefaultProps () {
     return {
       renderElementTag: 'div',
-      renderElementTo: null
+      renderElementTo: '.date-enabled'
     }
   },
 
