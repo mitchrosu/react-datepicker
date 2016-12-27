@@ -219,38 +219,42 @@ var DatePicker = React.createClass({
     if (!this.props.inline && (!this.state.open || this.props.disabled)) {
       return null
     }
-    return <WrappedCalendar
-        ref="calendar"
-        locale={this.props.locale}
-        dateFormat={this.props.dateFormatCalendar}
-        dropdownMode={this.props.dropdownMode}
-        selected={this.props.selected}
-        onSelect={this.handleSelect}
-        openToDate={this.props.openToDate}
-        minDate={this.props.minDate}
-        maxDate={this.props.maxDate}
-        selectsStart={this.props.selectsStart}
-        selectsEnd={this.props.selectsEnd}
-        startDate={this.props.startDate}
-        endDate={this.props.endDate}
-        excludeDates={this.props.excludeDates}
-        filterDate={this.props.filterDate}
-        onClickOutside={this.handleCalendarClickOutside}
-        highlightDates={this.props.highlightDates}
-        includeDates={this.props.includeDates}
-        peekNextMonth={this.props.peekNextMonth}
-        showMonthDropdown={this.props.showMonthDropdown}
-        showWeekNumbers={this.props.showWeekNumbers}
-        showYearDropdown={this.props.showYearDropdown}
-        forceShowMonthNavigation={this.props.forceShowMonthNavigation}
-        scrollableYearDropdown={this.props.scrollableYearDropdown}
-        todayButton={this.props.todayButton}
-        utcOffset={this.props.utcOffset}
-        outsideClickIgnoreClass={outsideClickIgnoreClass}
-        fixedHeight={this.props.fixedHeight}
-        monthsShown={this.props.monthsShown}
-        onDropdownFocus={this.handleDropdownFocus}
-        onMonthChange={this.props.onMonthChange}/>
+    return 
+      <div>
+        {this.renderClearButton()}
+        <WrappedCalendar
+          ref="calendar"
+          locale={this.props.locale}
+          dateFormat={this.props.dateFormatCalendar}
+          dropdownMode={this.props.dropdownMode}
+          selected={this.props.selected}
+          onSelect={this.handleSelect}
+          openToDate={this.props.openToDate}
+          minDate={this.props.minDate}
+          maxDate={this.props.maxDate}
+          selectsStart={this.props.selectsStart}
+          selectsEnd={this.props.selectsEnd}
+          startDate={this.props.startDate}
+          endDate={this.props.endDate}
+          excludeDates={this.props.excludeDates}
+          filterDate={this.props.filterDate}
+          onClickOutside={this.handleCalendarClickOutside}
+          highlightDates={this.props.highlightDates}
+          includeDates={this.props.includeDates}
+          peekNextMonth={this.props.peekNextMonth}
+          showMonthDropdown={this.props.showMonthDropdown}
+          showWeekNumbers={this.props.showWeekNumbers}
+          showYearDropdown={this.props.showYearDropdown}
+          forceShowMonthNavigation={this.props.forceShowMonthNavigation}
+          scrollableYearDropdown={this.props.scrollableYearDropdown}
+          todayButton={this.props.todayButton}
+          utcOffset={this.props.utcOffset}
+          outsideClickIgnoreClass={outsideClickIgnoreClass}
+          fixedHeight={this.props.fixedHeight}
+          monthsShown={this.props.monthsShown}
+          onDropdownFocus={this.handleDropdownFocus}
+          onMonthChange={this.props.onMonthChange}/>
+      </div>
   },
 
   renderDateInput () {
@@ -288,7 +292,7 @@ var DatePicker = React.createClass({
 
   renderClearButton () {
     if (this.props.isClearable && this.props.selected != null) {
-      return <a className="react-datepicker__close-icon" href="#" onClick={this.onClearClick} />
+      return <a className="clear-datepicker" href="#" onClick={this.onClearClick}> CLEAR </a>
     } else {
       return null
     }
@@ -310,7 +314,6 @@ var DatePicker = React.createClass({
             constraints={this.props.tetherConstraints}>
           <div className="react-datepicker__input-container">
             {this.renderDateInput()}
-            {this.renderClearButton()}
           </div>
           {calendar}
         </TetherComponent>
